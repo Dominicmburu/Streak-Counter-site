@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Streak Counter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Welcome to My Streak Counter</h1>
+    </header>
+    
+    <div class="activity-list">
+      <button id="addButton">+</button>
+      <div class="message" id="message">No Activities Added Yet</div>
+      <div class="activity-cards" id="activityCards"></div>
+    </div>
+
+    <div class="add-activity-modal" id="addActivityModal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Please Add A Task</h2>
+        <form id="addActivityForm">
+          <label for="taskName">Task Name</label>
+          <input type="text" id="taskName" required>
+          <label for="taskImage">Image URL</label>
+          <input type="url" id="taskImage" required>
+          <label for="startDate">Start Date</label>
+          <input type="date" id="startDate" required>
+          <button type="submit">Add Task</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="activity-popup" id="activityPopup">
+      <div class="popup-content">
+        <span class="popup-close" id="popupClose">&times;</span>
+        <h2 id="popupTitle"></h2>
+        <p id="popupDate"></p>
+        <p id="popupStreak"></p>
+        <button id="popupDelete">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
