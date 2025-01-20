@@ -75,26 +75,36 @@ function showMessage(msg) {
 function viewActivity(index) {
   const activity = activities[index];
 
+  const currentDate = new Date();
+  const startDate = new Date(activity.startDate);
+  
+  const timeDifference = currentDate - startDate;
+  
+  const streakDays = Math.floor(timeDifference / (1000 * 3600 * 24)) + 1;
+
+  activity.streak = streakDays;
+
   popupTitle.textContent = activity.name;
   popupDate.textContent = `Start Date: ${activity.startDate}`;
   popupStreak.textContent = `Streak: ${activity.streak} days`;
 
-  const popupImage = document.createElement("img");
+  const popupImage = document.createElement('img');
   popupImage.src = activity.image;
   popupImage.alt = activity.name;
-  popupImage.style.width = "100px";
-  popupImage.style.height = "100px";
-  popupImage.style.objectFit = "cover";
+  popupImage.style.width = '100px'; 
+  popupImage.style.height = '100px';
+  popupImage.style.objectFit = 'cover';
 
-  const popupContent = document.querySelector(".popup-content");
+  const popupContent = document.querySelector('.popup-content');
   popupContent.insertBefore(popupImage, popupTitle);
 
-  activityPopup.style.display = "flex";
+  activityPopup.style.display = 'flex';
 
   popupDelete.onclick = () => {
     deleteActivity(index);
   };
 }
+
 
 function deleteActivity(index) {
   activities.splice(index, 1);
